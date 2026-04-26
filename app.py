@@ -19,8 +19,10 @@ age = st.slider("Age", 0, 80, 25)
 fare = st.number_input("Fare", 0.0, 500.0, 50.0)
 sibsp = st.number_input("Siblings/Spouses", 0, 5, 0)
 parch = st.number_input("Parents/Children", 0, 5, 0)
-embarked = st.selectbox("Embarked", ["C", "Q", "S"])
-
+embarked = st.selectbox(
+    "Boarding Port",
+    ["Cherbourg (France)", "Queenstown (Ireland)", "Southampton (England)"]
+)
 # -------------------------------
 # 🔄 DATA TRANSFORMATION
 # -------------------------------
@@ -46,8 +48,15 @@ else:
     age_senior = 1
 
 # Embarked Encoding
-embarked_Q = 1 if embarked == "Q" else 0
-embarked_S = 1 if embarked == "S" else 0
+if "Cherbourg" in embarked:
+    embarked_Q = 0
+    embarked_S = 0
+elif "Queenstown" in embarked:
+    embarked_Q = 1
+    embarked_S = 0
+else:
+    embarked_Q = 0
+    embarked_S = 1
 
 # -------------------------------
 # 🤖 PREDICTION
