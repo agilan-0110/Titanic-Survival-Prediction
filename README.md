@@ -69,7 +69,7 @@ This project predicts whether a passenger survived the Titanic disaster using ma
 
 ## 🌐 Live Demo
 
-Will be updated after deployment
+https://titanic-survival-prediction-tatqnwhsb7qwedex2nohmu.streamlit.app/
 
 ---
 
