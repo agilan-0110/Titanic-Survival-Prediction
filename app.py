@@ -5,8 +5,17 @@ import pickle
 # Load trained model
 model = pickle.load(open("model/models.pkl", "rb"))
 
+#Deleting the default menu and footer
+st.markdown("""
+ <style>
+.st-emotion-cache-1lweda.e7msn5c15
+ {visibility: hidden;}
+
+ </style>
+ """, unsafe_allow_html=True)
+
 # Title
-st.title("🚢 Titanic Survival Prediction")
+st.title(" Titanic Survival Prediction")
 st.write("Enter passenger details to predict survival")
 
 # -------------------------------
@@ -80,6 +89,6 @@ if st.button("Predict"):
     prediction = model.predict(input_data)
 
     if prediction[0] == 1:
-        st.success("✅ Passenger Survived")
+        st.success(" Passenger Survived")
     else:
-        st.error("❌ Passenger Did Not Survive")
+        st.error(" Passenger Did Not Survive")
